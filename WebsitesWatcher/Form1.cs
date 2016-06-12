@@ -483,5 +483,20 @@ namespace WebsitesWatcher
                 dataTable.AsEnumerable().ToList().ForEach(row => row.Delete());
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns[CHECK_COLUMN_NAME].Index)
+            {
+                if ((bool)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == true)
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                }
+                else
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
+                }
+            }
+        }
     }
 }
